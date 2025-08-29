@@ -64,7 +64,7 @@ const NewsPage = () => {
       date: "February 20, 2026",
       description:
         "The Ministry is strengthening collaboration with international tax bodies to improve tax administration and compliance.",
-      image: "/news8.png",
+      image: "/news8.jpg",
     },
   ];
 
@@ -73,7 +73,7 @@ const NewsPage = () => {
     if (!isPaused) {
       const interval = setInterval(() => {
         scrollRight();
-      }, 5000);
+      }, 3000);
       return () => clearInterval(interval);
     }
   }, [currentIndex, isPaused]);
@@ -103,13 +103,13 @@ const NewsPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white flex flex-col items-center px-6 py-1">
+    <div className=" bg-white flex flex-col items-center px-6">
       <h2 className="text-3xl font-bold text-center mb-12">Latest News</h2>
 
       <div
         className="relative w-full max-w-6xl"
         onMouseEnter={() => setIsPaused(true)} // pause on hover
-        // onMouseLeave={() => setIs Paused(false)} //resume when leave
+        onMouseLeave={() => setIsPaused(false)} //resume when leave
       >
         {/* Left Arrow */}
         <button
@@ -137,7 +137,7 @@ const NewsPage = () => {
                   className="rounded-t-xl object-cover"
                 />
               </div>
-              <div className="bg-gradient-to-b from-blue-800 to-blue-400 p-4 text-white h-[180px] flex flex-col justify-between">
+              <div className="bg-gradient-to-b from-blue-800 to-blue-300 p-4 text-white h-[180px] flex flex-col justify-between">
                 <div>
                   <h3 className="font-semibold text-lg mb-1">{news.title}</h3>
                   <p className="text-sm opacity-90">{news.description}</p>

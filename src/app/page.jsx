@@ -3,7 +3,7 @@ import NavBar from "./home/NavBar";
 import Herosection from "./home/Herosection";
 import Service from "./home/services";
 import News from "./home/News"; // make sure this is a default export
-
+import Revenutotal from "./home/RevenuTotal";
 function Page() {
   // Component names should be PascalCase
   return (
@@ -11,7 +11,8 @@ function Page() {
       <NavBar />
       <Herosection />
       <Service />
-      <News /> {/* Corrected casing */}
+      <News />
+      <Revenutotal />
     </div>
   );
 }
