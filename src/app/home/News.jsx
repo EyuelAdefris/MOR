@@ -103,7 +103,7 @@ const NewsPage = () => {
   };
 
   return (
-    <div className=" bg-white flex flex-col items-center px-6">
+    <div className=" bg-white flex flex-col items-center p-16">
       <h2 className="text-3xl font-bold text-center mb-12">Latest News</h2>
 
       <div

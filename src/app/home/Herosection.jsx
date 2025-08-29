@@ -44,7 +44,8 @@ export default function HeroSlider() {
   };
 
   return (
-    <div className="relative w-full h-[90vh] overflow-hidden">
+    // add padding for image to fit
+    <div className="relative w-full h-[90vh] overflow-hidden ">
       {/* Fixed Social Icons */}
       <div className="fixed top-1/3 left-2 z-100 flex flex-col space-y-4">
         <a
@@ -87,7 +88,6 @@ export default function HeroSlider() {
           <MessageCircle size={20} />
         </a>
       </div>
-
       {/* Slides */}
       {slides.map((slide, index) => (
         <div
@@ -123,7 +123,6 @@ export default function HeroSlider() {
           </div>
         </div>
       ))}
-
       {/* Dots Navigation */}
       <div className="absolute bottom-6 w-full flex justify-center space-x-3 z-30">
         {slides.map((_, index) => (

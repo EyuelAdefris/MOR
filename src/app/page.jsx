@@ -2,10 +2,10 @@ import React from "react";
 import NavBar from "./home/NavBar";
 import Herosection from "./home/Herosection";
 import Service from "./home/services";
-import News from "./home/News"; // make sure this is a default export
+import News from "./home/News";
 import Revenutotal from "./home/RevenuTotal";
+import Links from "./home/Important-links";
 function Page() {
-  // Component names should be PascalCase
   return (
     <div>
       <NavBar />
@@ -13,6 +13,7 @@ function Page() {
       <Service />
       <News />
       <Revenutotal />
+      <Links />
     </div>
   );
 }
