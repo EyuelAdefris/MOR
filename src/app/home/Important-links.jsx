@@ -144,7 +144,7 @@ const DashboardPage = () => {
           {/* Content */}
           <div>
             {proclamations[activeTab].map((item, index) => (
-              <div key={index} className="p-4 hover:bg-gray-50 cursor-pointer">
+              <div key={index} className="p-4 hover:bg-blue-100 cursor-pointer">
                 <h3 className="font-semibold text-gray-800">{item.title}</h3>
                 <p className="text-xs text-gray-500 mb-1">{item.date}</p>
                 <p className="text-sm text-gray-600">{item.description}</p>

@@ -53,12 +53,12 @@ export default function HeroSlider() {
           className="relative flex items-center justify-center group"
         >
           {/* Phone icon with circle (default state) */}
-          <span className="p-3 bg-blue-600 text-white rounded-full shadow-lg transition-all duration-300 group-hover:opacity-0 group-hover:scale-0">
+          <span className="p-3 bg-blue-600 text-white rounded-full shadow-lg transition-all duration-500 group-hover:opacity-0 group-hover:scale-0">
             <Phone size={20} />
           </span>
 
           {/* Number (shown on hover only) */}
-          <span className="absolute opacity-0 translate-y-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0 text-yellow-400 font-bold text-lg">
+          <span className="absolute opacity-0 translate-y-2 transition-all duration-500 group-hover:opacity-100 group-hover:translate-y-0 text-yellow-400 font-bold text-lg">
             8199
           </span>
         </a>

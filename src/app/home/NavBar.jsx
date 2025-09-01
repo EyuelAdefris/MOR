@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
-import { ChevronDown, Search, ArrowRight } from "lucide-react";
+import { ChevronDown, Search, ArrowRight, Bell } from "lucide-react";
 import Link from "next/link";
 
 const Navbar = () => {
@@ -11,6 +11,8 @@ const Navbar = () => {
   const [isEnglish, setIsEnglish] = useState(true);
   const [isLanguageOpen, setIsLanguageOpen] = useState(false);
   const [activeDropdownItem, setActiveDropdownItem] = useState(null);
+  const [hasNotifications, setHasNotifications] = useState(false); // State for notifications
+  const [bellClicked, setBellClicked] = useState(false); // State for bell animation
 
   const navItems = [
     { name: "Home", link: "#" },
@@ -54,8 +56,19 @@ const Navbar = () => {
     console.log(`Selected: ${mainItem} -> ${subItem}`);
   };
 
+  // Handle bell icon click
+  const handleBellClick = () => {
+    setBellClicked(true);
+    setHasNotifications(false); // Clear notifications on click
+
+    // Reset animation after 500ms
+    setTimeout(() => {
+      setBellClicked(false);
+    }, 500);
+  };
+
   return (
-    <nav className="w-full bg-white shadow-sm px-6 py-3 flex items-center justify-between relative">
+    <nav className="w-full bg-white shadow-sm px-6 py-2 flex items-center justify-between relative">
       {/* Left: Logo + Title */}
       <div className="flex items-center gap-2">
         <Image
@@ -146,7 +159,7 @@ const Navbar = () => {
         )}
       </div>
 
-      {/* Right: Search + Language */}
+      {/* Right: Search + Bell + Language */}
       <div className="flex items-center gap-3">
         <div className="relative">
           <input
@@ -155,6 +168,34 @@ const Navbar = () => {
             className="pl-8 pr-3 py-1 text-sm rounded-full border border-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500"
           />
           <Search className="w-4 h-4 absolute left-2 top-1.5 text-gray-400" />
+        </div>
+
+        {/* Notification Bell */}
+        <div className="relative">
+          <button
+            onClick={() => {
+              setHasNotifications(!hasNotifications); // Toggle state
+              setBellClicked(true);
+
+              // Reset animation
+              setTimeout(() => setBellClicked(false), 500);
+            }}
+            className={`p-2 rounded-full transition-all duration-300 ${
+              bellClicked ? "bg-blue-100 scale-125" : "hover:bg-red-100"
+            }`}
+            title={hasNotifications ? "Notifications On" : "Notifications Off"}
+          >
+            <Bell
+              className={`w-5 h-5 transition-colors duration-300 ${
+                hasNotifications
+                  ? "text-blue-500 fill-blue-200" // 🔵 Blue when enabled
+                  : "text-red-500 fill-red-200" // 🔴 Red when disabled
+              } ${bellClicked ? "animate-ring" : ""}`}
+            />
+            {hasNotifications && (
+              <span className="absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full"></span>
+            )}
+          </button>
         </div>
 
         {/* Language Selector */}
@@ -209,6 +250,30 @@ const Navbar = () => {
           )}
         </div>
       </div>
+
+      {/* Add CSS for the bell animation */}
+      <style jsx>{`
+        @keyframes ring {
+          0% {
+            transform: rotate(0deg);
+          }
+          25% {
+            transform: rotate(15deg);
+          }
+          50% {
+            transform: rotate(-15deg);
+          }
+          75% {
+            transform: rotate(10deg);
+          }
+          100% {
+            transform: rotate(0deg);
+          }
+        }
+        .animate-ring {
+          animation: ring 0.5s ease-in-out;
+        }
+      `}</style>
     </nav>
   );
 };

@@ -3,8 +3,9 @@ import NavBar from "./home/NavBar";
 import Herosection from "./home/Herosection";
 import Service from "./home/services";
 import News from "./home/News";
-import Revenutotal from "./home/RevenuTotal";
+import RevenuBar from "./home/RevenuBar";
 import Links from "./home/Important-links";
+import Fotter from "./home/fotter";
 function Page() {
   return (
     <div>
@@ -12,8 +13,9 @@ function Page() {
       <Herosection />
       <Service />
       <News />
-      <Revenutotal />
+      <RevenuBar />
       <Links />
+      <Fotter />
     </div>
   );
 }

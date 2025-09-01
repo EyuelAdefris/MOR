@@ -13,7 +13,7 @@ const statsData = [
 const StatsBar = () => {
   return (
     <div className="w-full py-12 flex justify-center p-16">
-      <div className="w-full max-w-6xl bg-gradient-to-r from-blue-900 via-blue-350 to-yellow-500 rounded-lg shadow-lg py-4">
+      <div className="w-full max-w-6xl bg-gradient-to-r from-blue-800 to-yellow-500 rounded-lg shadow-lg py-4">
         <div className="flex justify-around items-center text-center text-white font-semibold">
           {statsData.map((stat, index) => (
             <div key={index} className="flex flex-col items-center">
